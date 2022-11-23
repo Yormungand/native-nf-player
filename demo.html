@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uzii</title>
+    <link rel="stylesheet" href="dist/css/root.min.css">
+    <link rel="stylesheet" href="//static.sodonsolution.org/fonts/roboto/fonts.css">
+</head>
+<body>
+<main>
+    <div id="video-wrap" class="player player-demo" oncontextmenu="return false;">
+        <video id="video" preload="metadata">
+            <source src="https://vjs.zencdn.net/v/oceans.mp4">
+        </video>
+        <div class="controls">
+            <div class="width-1-1">
+                <div id="progressBar" class="progress-bar">
+                    <div id="progressPct" class="progress-pct"></div>
+                    <div id="progressThumb" draggable="true" class="progress-thumb"></div>
+                    <div id="progressPrev" class="progress-prev">
+                        30:00
+                    </div>
+                </div>
+            </div>
+            <button id="playpause" type="button" data-state="play"></button>
+            <button id="rewind" type="button"></button>
+            <button id="forward" type="button"></button>
+            <button id="volume" data-state="volume_loud" type="button"></button>
+            <div class="video-title">Castlevania</div>
+            <button id="episodes" type="button"></button>
+            <button id="fullscreen" type="button" data-state="fs-enter"></button>
+        </div>
+        <div id="playButton" class="play-button" data-state="play"></div>
+        <div id="volumeIndicator" class="volume-control" data-state="volume_loud"></div>
+        <div id="rewind_ed" class="rewinded"></div>
+        <div id="forward_ed" class="forwarded"></div>
+        <script>
+            window.addEventListener("load", function () {
+                setTimeout(function () {
+                    // This hides the address bar:
+                    window.scrollTo(0, 1);
+                }, 0);
+            });
+            document.addEventListener("DOMContentLoaded", e => {
+                let video = new customNetflix();
+                video.init();
+            })
+        </script>
+        <div
+                id="episodes_list"
+                style="
+                    position: absolute;
+                    padding: 50px 20px 20px;
+                    box-sizing: border-box;
+                    min-width: 20vw;
+                    height: 100vh;
+                    top: 0;
+                    right: -100%;
+                    z-index: 10000000000;
+                    background-color: #333;
+
+                    transition: right .3s ease;"
+        >
+            <div style="font-size: 28px; color: #fefefe">Ангиуд</div>
+        </div>
+        <!--let episodesList = document.createElement("div");
+        episodesList.setAttribute("id", "episodesList");
+        episodesList.style.position = "absolute";
+        episodesList.style.width = "500px";
+        episodesList.style.height = "100vh";
+        episodesList.style.bottom = "0";
+        episodesList.style.right = "0";
+        episodesList.style.zIndex = "2";
+        episodesList.style.backgroundColor = "#333";
+        videoWrap.appendChild(episodesList);-->
+    </div>
+</main>
+<script src="dist/js/root.min.js"></script>
+</body>
+</html>
